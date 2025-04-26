@@ -2,6 +2,7 @@ import socket
 import threading
 import sys
 
+#List of connected clients
 clients = []
 
 def broadcast(message, client, client_name):
@@ -11,11 +12,12 @@ def broadcast(message, client, client_name):
             try:
                 c.send(f"{client_name}: {message}".encode('utf-8'))
             except:
+                #Remove the client if sending fails
                 clients.remove(c)
 
 def handle_client(client, addr):
     """Handle communication with each connected client."""
-    client_name = f"Client {addr[1]}"  
+    client_name = f"Client {addr[1]}"  # Unique name for each client based on port number
     print(f"{client_name} connected")
     
     while True:
@@ -32,6 +34,7 @@ def handle_client(client, addr):
 
 def start_server():
     """Start the server and accept incoming client connections."""
+    #Create a TCP/IP socket
     server = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
     server.bind(('127.0.0.1', 5555))
     server.listen(5)
@@ -50,4 +53,5 @@ def start_server():
         server.close()
         sys.exit(0)
 
+# Start the server
 start_server()
