@@ -19,3 +19,18 @@ main-file/
 - Client messages are labeled (`You:` for the sender, `Client <port>:` for others)  
 - Graceful shutdown of the server with `Ctrl+C`
 
+## 🚀 How It Works
+
+### 🖥️ Server
+
+- Accepts multiple client connections using threads.
+- Broadcasts messages to all connected clients except the sender.
+- Tags each client using their port number (`Client <port>`).
+
+### 💬 Client
+
+- Connects to the server and opens a chat GUI.
+- Sends messages using a `Send` button or pressing `Enter`.
+- Displays received messages from other clients.
+- Messages sent by the user appear prefixed with `You:`.
+
