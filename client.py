@@ -7,10 +7,10 @@ def receive_messages(client, text_area):
     while True:
         try:
             message = client.recv(1024).decode('utf-8')
-            text_area.config(state=tk.NORMAL)  
+            text_area.config(state=tk.NORMAL) 
             text_area.insert(tk.END, message + '\n')  
-            text_area.yview(tk.END)  
-            text_area.config(state=tk.DISABLED) 
+            text_area.yview(tk.END) 
+            text_area.config(state=tk.DISABLED)  
         except:
             break
 
@@ -20,8 +20,8 @@ def send_message(client, message_entry, text_area):
         client.send(message.encode('utf-8'))
         text_area.config(state=tk.NORMAL)  
         text_area.insert(tk.END, "You: " + message + '\n')  
-        text_area.yview(tk.END)  
-        text_area.config(state=tk.DISABLED)  
+        text_area.yview(tk.END) 
+        text_area.config(state=tk.DISABLED) 
         message_entry.delete(0, tk.END) 
 
 def start_client():
@@ -33,7 +33,7 @@ def start_client():
 
     text_area = scrolledtext.ScrolledText(root, wrap=tk.WORD, width=50, height=20)
     text_area.pack(padx=10, pady=10)
-    text_area.config(state=tk.DISABLED) 
+    text_area.config(state=tk.DISABLED)  # Make the text area read-only initially
 
     message_entry = tk.Entry(root, width=40)
     message_entry.pack(padx=10, pady=10)
