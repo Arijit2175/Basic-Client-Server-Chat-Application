@@ -34,3 +34,8 @@ main-file/
 - Displays received messages from other clients.
 - Messages sent by the user appear prefixed with `You:`.
 
+## Requirements
+
+- Python 3.x  
+- No external libraries needed (`socket`, `threading`, and `tkinter` are built-in)
+
