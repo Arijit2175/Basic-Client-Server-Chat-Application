@@ -6,6 +6,7 @@ This is a simple multi-client chat application built with **Python**, using:
 - `tkinter` for building a basic chat GUI on the client side
 
 ## 📂 File Structure
+
 main-file/
   |- server.py # Chat server that handles multiple clients
   |- client.py # GUI client that connects to the chat server
@@ -38,4 +39,12 @@ main-file/
 
 - Python 3.x  
 - No external libraries needed (`socket`, `threading`, and `tkinter` are built-in)
+
+## Run the Server and Client
+
+Here's the commands for running the server and clients:
+```
+python server.py
+python client.py
+```
 
