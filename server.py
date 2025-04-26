@@ -23,3 +23,17 @@ def handle_client(client):
             break
     clients.remove(client)
     client.close()
+
+def start_server():
+    server = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+    server.bind(('127.0.0.1', 5555))
+    server.listen(5)
+    print("Server is running and waiting for connections...")
+
+    while True:
+        client, addr = server.accept()
+        clients.append(client)
+        print(f"New connection: {addr}")
+        threading.Thread(target=handle_client, args=(client,)).start()
+
+start_server()
