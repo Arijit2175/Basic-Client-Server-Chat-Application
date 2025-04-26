@@ -50,4 +50,8 @@ python client.py
 
 # Preview
 Here's a small preview of the application: 
-![Demo of the app]()
+![Demo of the app](assets/chat_app.png)
+
+<br>
+
+**Developed by** - @Arijit2175
