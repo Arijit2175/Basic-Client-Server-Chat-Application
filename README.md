@@ -48,3 +48,6 @@ python server.py
 python client.py
 ```
 
+# Preview
+Here's a small preview of the application: 
+![Demo of the app]()
