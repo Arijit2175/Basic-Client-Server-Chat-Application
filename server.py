@@ -3,6 +3,7 @@ import threading
 import sys
 
 clients = []
+running = True  
 
 def broadcast(message, client, client_name):
     """Send the message to all clients except the sender."""
@@ -18,7 +19,7 @@ def handle_client(client, addr):
     client_name = f"Client {addr[1]}"  
     print(f"{client_name} connected")
     
-    while True:
+    while running:
         try:
             message = client.recv(1024).decode('utf-8')
             if message:
@@ -37,17 +38,19 @@ def start_server():
     server.listen(5)
     print("Server is running and waiting for connections...")
 
+    global running
     try:
-        while True:
+        while running:
             client, addr = server.accept()
             clients.append(client)
             threading.Thread(target=handle_client, args=(client, addr), daemon=True).start()
     except KeyboardInterrupt:
         print("\nServer is shutting down...")
+        running = False  
     finally:
         for client in clients:
             client.close()
         server.close()
-        sys.exit(0)
+        sys.exit(0)  
 
 start_server()
