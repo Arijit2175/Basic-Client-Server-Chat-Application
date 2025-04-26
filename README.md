@@ -49,7 +49,9 @@ python client.py
 ```
 
 # Preview
+
 Here's a small preview of the application: 
+
 ![Demo of the app](assets/chat_app.png)
 
 <br>
